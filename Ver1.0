@@ -1,0 +1,84 @@
+/* William Kew
+Arcade Cabinet Control Surface
+This code is in the public domain
+2015
+
+CABINET SPECS:
+ Raspberry Pi powered.
+ 2 x Arduino Leonardo for Control Surface (Two are required due to total number of required inputs
+ for two 6-button setups per player)
+ 2 players
+ 2 joysticks
+ 6 buttons per player
+ */
+ 
+ //int DpadUp = 1; // To be used "d-pad style" otherwise joystick is configured as to potentiometers, one per axis.
+ //int DpadDown = 2; 
+ //int DpadLeft = 12
+ //int DapdRight = 13
+ int pOneA = 2; // Arcade buttons. 1P, 2P buttons generally found on an arcade cabinet won't be necessary as this unit will have a keyboard.
+ int pOneB = 3;
+ int pOneC = 4;
+ int pOneD = 5;
+ int pOneE = 6;
+ int pOneF = 7;
+ int ledPin = 8;
+ 
+ void setup() {
+   Serial.begin(9600);
+   pinMode(pOneA, INPUT);
+   pinMode(pOneB, INPUT);
+   pinMode(pOneC, INPUT);
+   pinMode(pOneD, INPUT);
+   pinMode(pOneE, INPUT);
+   pinMode(pOneF, INPUT);
+   pinMode(ledPin, OUTPUT);
+   Keyboard.begin();
+ }
+ 
+ void loop() {
+   if digitalWrite(pOneA = HIGH);
+   Keyboard.print("a");
+   digitalWrite(ledPin = HIGH);
+   
+   if digitalWrite(pOneA = LOW);
+   digitalWrite(ledPin = LOW);
+   
+   if digitalWrite(pOneB = HIGH);
+   Keyboard.print("b");
+   digitalWrite(ledPin = HIGH);
+   
+   if digitalWrite(pOneB = LOW);
+   digitalWrite(ledPin = LOW);
+   
+   if digitalWrite(pOneC = HIGH);
+   Keyboard.print("c");
+   digitalWrite(ledPin = HIGH);
+   
+   if digitalWrite(pOneC = LOW);
+   digitalWrite(ledPin = LOW);
+   
+   if digitalWrite(pOneD = HIGH);
+   Keyboard.print("d");
+   digitalWrite(ledPin = HIGH);
+   
+   if digitalWrite(pOneD = LOW);
+   digitalWrite(ledPin = LOW);
+   
+   if digitalWrite(pOneE = HIGH);
+   Keyboard.print("e");
+   digitalWrite(ledPin = HIGH);
+   
+   if digitalWrite(pOneE = LOW);
+   digitalWrite(ledPin = LOW);
+   
+   if digitalWrite(pOneF = HIGH);
+   Keyboard.print("f");
+   digitalWrite(ledPin = HIGH);
+   
+   if digitalWrite(pOneF = LOW);
+   digitalWrite(ledPin = LOW);
+   
+ 
+ 
+ 
