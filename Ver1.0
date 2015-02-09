@@ -3,82 +3,86 @@ Arcade Cabinet Control Surface
 This code is in the public domain
 2015
 
-CABINET SPECS:
- Raspberry Pi powered.
- 2 x Arduino Leonardo for Control Surface (Two are required due to total number of required inputs
- for two 6-button setups per player)
+INTENDED CABINET SPECS:
  2 players
  2 joysticks
  6 buttons per player
+ Keyboard interface accessible by player
+ Raspberry Pi powered.
+ 2 x Arduino Leonardo or Micro Pro for Control Surface (Two are required due to the total number of required input pins
+ for two 6-button setups, one per player. I wanted each physical button to have its own input in order to have the 
+ most cosisentency in the controls. However, I also intend to wire in gamepads that will operate on the same circuit.)
  */
  
- //int DpadUp = 1; // To be used "d-pad style" otherwise joystick is configured as to potentiometers, one per axis.
- //int DpadDown = 2; 
- //int DpadLeft = 12
- //int DapdRight = 13
- int pOneA = 2; // Arcade buttons. 1P, 2P buttons generally found on an arcade cabinet won't be necessary as this unit will have a keyboard.
- int pOneB = 3;
- int pOneC = 4;
- int pOneD = 5;
- int pOneE = 6;
- int pOneF = 7;
- int ledPin = 8;
+ //#define DpadUp  1 // To be used for "d-pad" or microswitch joystick. 
+ //#define DpadDown  2 // Thumbsticks are configured as two potentiometers, one per axis, and a microswitch "click" function
+ //#define DpadLeft  12
+ //#define DapdRight  13
+ #define pOneA  2 // Arcade buttons. 1P, 2P buttons generally found on an arcade cabinet won't be necessary as this unit will have a keyboard.
+ #define pOneB  3
+ #define pOneC  4
+ #define pOneD  5
+ #define pOneE  6
+ #define pOneF  7
+ #define ledPin  8
+ 
+int switchstate1 = 0;   // Topside button defaults
+int switchstate2 = 0;
+int switchstate3 = 0;
+int switchstate4 = 0;   
+int switchstate5 = 0;
+int switchstate6 = 0;
  
  void setup() {
-   Serial.begin(9600);
+   Serial.begin(9600);    // For transmission over USB
    pinMode(pOneA, INPUT);
+   digitalWrite(pOneA, HIGH);
    pinMode(pOneB, INPUT);
+   digitalWrite(pOneA, HIGH);
    pinMode(pOneC, INPUT);
+   digitalWrite(pOneA, HIGH);
    pinMode(pOneD, INPUT);
+   digitalWrite(pOneA, HIGH);
    pinMode(pOneE, INPUT);
+   digitalWrite(pOneA, HIGH);
    pinMode(pOneF, INPUT);
+   digitalWrite(pOneA, HIGH);
    pinMode(ledPin, OUTPUT);
-   Keyboard.begin();
+   Keyboard.begin();  // Implement keyboard funtionality
  }
  
- void loop() {
-   if digitalWrite(pOneA = HIGH);
+ void loop() { 
+ 
+  switchstate1 = digitalRead(2); // Topside button action set
+  switchstate2 = digitalRead(3);
+  switchstate3 = digitalRead(4);
+  switchstate1 = digitalRead(5);
+  switchstate2 = digitalRead(6);
+  switchstate3 = digitalRead(7);
+   
+   if (switchstate1 == HIGH); {
    Keyboard.print("a");
-   digitalWrite(ledPin = HIGH);
+   }
    
-   if digitalWrite(pOneA = LOW);
-   digitalWrite(ledPin = LOW);
-   
-   if digitalWrite(pOneB = HIGH);
+   if (switchstate2 == HIGH); {
    Keyboard.print("b");
-   digitalWrite(ledPin = HIGH);
+   }
    
-   if digitalWrite(pOneB = LOW);
-   digitalWrite(ledPin = LOW);
-   
-   if digitalWrite(pOneC = HIGH);
+   if (switchstate3 == HIGH); {
    Keyboard.print("c");
-   digitalWrite(ledPin = HIGH);
+   }
    
-   if digitalWrite(pOneC = LOW);
-   digitalWrite(ledPin = LOW);
-   
-   if digitalWrite(pOneD = HIGH);
+   if (switchstate4 == HIGH); {
    Keyboard.print("d");
-   digitalWrite(ledPin = HIGH);
+   }
    
-   if digitalWrite(pOneD = LOW);
-   digitalWrite(ledPin = LOW);
-   
-   if digitalWrite(pOneE = HIGH);
+   if (switchstate5 == HIGH); {
    Keyboard.print("e");
-   digitalWrite(ledPin = HIGH);
+   }
    
-   if digitalWrite(pOneE = LOW);
-   digitalWrite(ledPin = LOW);
-   
-   if digitalWrite(pOneF = HIGH);
+   if (switchstate6 == HIGH); {
    Keyboard.print("f");
-   digitalWrite(ledPin = HIGH);
-   
-   if digitalWrite(pOneF = LOW);
-   digitalWrite(ledPin = LOW);
-   
- 
- 
+   }
+
+ }
  
