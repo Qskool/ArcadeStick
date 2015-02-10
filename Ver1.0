@@ -25,7 +25,12 @@ INTENDED CABINET SPECS:
  #define pOneE  6
  #define pOneF  7
  #define ledPin  8
- 
+
+// int switchstateU = 0; // dpad button defaults
+// int switchstateD = 0;
+// int switchstateL = 0;
+// int switchstateR = 0;
+
 int switchstate1 = 0;   // Topside button defaults
 int switchstate2 = 0;
 int switchstate3 = 0;
@@ -53,6 +58,11 @@ int switchstate6 = 0;
  
  void loop() { 
  
+  // switchstateU = digitalRead(); // Dpad button action set. Actual pins must be assigned.
+  // switchstateD = digitalRead();
+  // switchstateL = digitalRead();
+  // switchstateR = digitalRead();
+   
   switchstate1 = digitalRead(2); // Topside button action set
   switchstate2 = digitalRead(3);
   switchstate3 = digitalRead(4);
